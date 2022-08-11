@@ -29,14 +29,13 @@ function Header() {
   return (
     <header className={`${isScrolled && "bg-[#141414]"} flex m-auto py-3`}>
       <div className="flex items-center space-x-6">
+        <BasicMenu />
         <img
           src="https://rb.gy/ulxxee"
           width={100}
           height={100}
           className="cursor-pointer object-contain"
         />
-
-        <BasicMenu />
 
         <div className="hidden space-x-4 md:flex">
           <p className="headerLink cursor-default font-semibold text-white hover:text-white">
@@ -55,7 +54,12 @@ function Header() {
         <Link href="/account">
           <AccountCircleIcon className="cursor-pointer"></AccountCircleIcon>
         </Link>
-        <Avatar className="cursor-pointer" alt="Remy Sharp" sx={{ width: 30, height: 30 }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsHj5y8KIzLxTTC6wstr27Mxoh3lbSZeNzjQ&usqp=CAU" />
+        <Avatar
+          className="cursor-pointer"
+          alt="Remy Sharp"
+          sx={{ width: 30, height: 30 }}
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsHj5y8KIzLxTTC6wstr27Mxoh3lbSZeNzjQ&usqp=CAU"
+        />
       </div>
     </header>
   );
