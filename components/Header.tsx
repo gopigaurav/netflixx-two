@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { BellIcon, SearchIcon } from "@heroicons/react/solid";
-//import useAuth from '../hooks/useAuth'
+import useAuth from '../customHooks/useAuth'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -9,6 +9,7 @@ import { Avatar } from "@mui/material";
 
 function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const { logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,17 +28,17 @@ function Header() {
   }, []);
 
   return (
-    <header className={`${isScrolled && "bg-[#141414]"} flex m-auto py-3`}>
-      <div className="flex items-center space-x-6">
+    <header className={`${isScrolled ? "bg-[#141414]": ""} m-auto py-3 fixed top-0 z-50 flex w-full items-center justify-between px-4 transition-all lg:px-10 lg:py-6`}>
+      <div className="flex items-center">
         <BasicMenu />
         <img
           src="https://rb.gy/ulxxee"
           width={100}
           height={100}
-          className="cursor-pointer object-contain"
+          className="cursor-pointer object-contain mx-2"
         />
 
-        <div className="hidden space-x-4 md:flex">
+        <div className="hidden space-x-4 md:flex mx-2">
           <p className="headerLink cursor-default font-semibold text-white hover:text-white">
             Home
           </p>
@@ -59,6 +60,7 @@ function Header() {
           alt="Remy Sharp"
           sx={{ width: 30, height: 30 }}
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsHj5y8KIzLxTTC6wstr27Mxoh3lbSZeNzjQ&usqp=CAU"
+          onClick={logout}
         />
       </div>
     </header>
